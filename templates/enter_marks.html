@@ -1,0 +1,61 @@
+{% extends "admin_dashboard.html" %}
+{% block content %}
+<!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="/static/css/style1.css" rel="stylesheet">
+<div class="container dashboard">
+        <h2 class="mt-5">Enter Student Details for {{admission_no}}</h2>
+        <form action="/submit_marks" method="POST">
+
+            <div class="form-group">
+                <label for="admission_number">Admission Number</label>
+                <input type="text" id="admission_number" name="admission_no" value="{{ admission_no }}" readonly>
+            </div>
+            <!-- Marks Input -->
+
+            <div class="form-group">
+                <label for="mathematics">Mathematics</label>
+                <input type="number" class="form-control" id="mathematics" name="mathematics" required>
+            </div>
+            <div class="form-group">
+                <label for="biology">Biology</label>
+                <input type="number" class="form-control" id="biology" name="biology" required>
+            </div>
+            <div class="form-group">
+                <label for="chemistry">Chemistry</label>
+                <input type="number" class="form-control" id="chemistry" name="chemistry" required>
+            </div>
+            <div class="form-group">
+                <label for="physics">Physics</label>
+                <input type="number" class="form-control" id="physics" name="physics" required>
+            </div>
+            <div class="form-group">
+                <label for="geography">Geography</label>
+                <input type="number" class="form-control" id="geography" name="geography" required>
+            </div>
+            <div class="form-group">
+                <label for="business">Business</label>
+                <input type="number" class="form-control" id="business" name="business" required>
+            </div>
+
+            <div class="form-group">
+                <label for="english">English</label>
+                <input type="number" class="form-control" id="english" name="english" required>
+            </div>
+            <div class="form-group">
+                <label for="kiswahili">Kiswahili</label>
+                <input type="number" class="form-control" id="kiswahili" name="kiswahili" required>
+            </div>
+            <div class="form-group">
+                <label for="cre">CRE</label>
+                <input type="number" class="form-control" id="cre" name="cre" required>
+            </div>
+            <div class="form-group">
+                <label for="french">French</label>
+                <input type="number" class="form-control" id="french" name="french" required>
+            </div>
+
+            <button type="submit" class="button-9">Submit</button>
+        </form>
+
+    </div>
+{% endblock %}

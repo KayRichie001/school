@@ -1,0 +1,23 @@
+{% extends "manager.html" %}
+{% block content %}
+    <h1>PDF Book Library</h1>
+    <a href="{{ url_for('upload') }}">Upload a new Memo</a>
+    <ul>
+        {% for book in books %}
+        <li>
+            {% if book.image %}
+            <img src="{{ url_for('static', filename='uploads/images/' + book.image) }}" alt="Book Image" width="100">
+            {% endif %}
+            <a href="{{ url_for('download', filename=book.filename) }}">{{ book.filename }}</a>
+            <form method="POST" action="{{ url_for('delete', filename=book.filename) }}" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+
+

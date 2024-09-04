@@ -1,0 +1,14 @@
+{% extends "manager.html" %}
+{% block content %}
+<h1>Upload a New Memo</h1>(<em>.pdf format</em>)
+    <form method="POST" enctype="multipart/form-data">
+        <label for="file">Select PDF file:</label>
+        <input type="file" name="file" id="file" accept="application/pdf" required>
+        <br><br>
+        <label for="image">Select Front Image (Optional):</label>
+        <input type="file" name="image" id="image" accept="image/*">
+        <br><br>
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+{% endblock %}

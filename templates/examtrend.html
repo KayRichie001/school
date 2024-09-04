@@ -1,0 +1,81 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<div class="dashboard">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <canvas id="studentScoresChart" width="400" height="200"></canvas>
+</div>
+    <script>
+        // Student scores data
+        const studentScores = {
+            '2021': [75, 78, 80, 82, 85, 88, 90, 92, 95],
+            '2022': [65, 68, 70, 72, 75, 78, 80, 82, 85],
+            '2023': [85, 88, 90, 92, 95, 98, 100, 102, 105],
+            '2024': [60, 62, 65, 67, 70, 72, 75, 78, 80]
+        };
+
+        // X-axis labels
+        const terms = ['Term 1 Exam 1', 'Term 1 Exam 2', 'Term 1 Exam 3',
+                       'Term 2 Exam 1', 'Term 2 Exam 2', 'Term 2 Exam 3',
+                       'Term 3 Exam 1', 'Term 3 Exam 2', 'Term 3 Exam 3'];
+
+        // Create datasets for each year
+        const datasets = Object.keys(studentScores).map(year => ({
+            label: `Year ${year}`,
+            data: studentScores[year],
+            fill: false,
+            borderColor: getRandomColor(),
+            tension: 0.1
+        }));
+
+        // Function to generate random colors for the lines
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Create the chart
+        const ctx = document.getElementById('studentScoresChart').getContext('2d');
+        const studentScoresChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: terms,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: '{{Student}} Scores Over the Years'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Examinations'
+                        },
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Scores'
+                        },
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}

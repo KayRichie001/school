@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+        .container h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #28a745;
+        }
+        .container p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .container .checkmark {
+            font-size: 50px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .container a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .container a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">✔</div>
+        <h1>Signup Successful</h1>
+        <p>Your account has been created successfully!</p>
+        <a href="{{ url_for('add') }}">Go to Back</a>
+    </div>
+</body>
+</html>

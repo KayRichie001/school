@@ -1,0 +1,92 @@
+{% extends "admin_dashboard.html" %}
+{% block content %}
+    <style>
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .submit-container {
+            display: flex;
+            justify-content: center;
+        }
+        .submit-container input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+<h1>Set Marks For {{ first_name }} </h1>
+<br>
+<h1>Admission Number: {{ admission_no }}</h1>
+    <form action="/enter_marks/{{ admission_no }}" method="post">
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Term</th>
+                <th>Type</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="year" required>
+                        <option value="">Select Year</option>
+                        <!-- Year options from 2000 to 2050 -->
+                        <script>
+                            for (let year = 2000; year <= 2050; year++) {
+                                document.write(`<option value="${year}">${year}</option>`);
+                            }
+                        </script>
+                    </select>
+                </td>
+                <td>
+                    <select name="term" required>
+                        <option value="">Select Term</option>
+                        <option value="1">Term 1</option>
+                        <option value="2">Term 2</option>
+                        <option value="3">Term 3</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="type" required>
+                        <option value="">Select Type</option>
+                        <option value="opener">Opener</option>
+                        <option value="mid-term">Mid-Term</option>
+                        <option value="end-term">End-Term</option>
+                        <option value="mock">Mock</option>
+                        <option value="trial1">Trial 1</option>
+                        <option value="trial2">Trial 2</option>
+                        <option value="trial">Trial</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="submit-container">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+{% endblock %}

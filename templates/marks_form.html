@@ -1,0 +1,38 @@
+<!-- marks_form.html -->
+{% extends "admin_dashboard.html" %}
+{% block content %}
+    <h2>Enter Marks for Each Subject</h2>
+    <form action="/submit_marks" method="POST">
+        <label >Mathematics:</label>
+        <input type="number" name="mathematics" required><br><br>
+
+        <label >Biology:</label>
+        <input type="number" name="biology" required><br><br>
+
+        <label>Chemistry:</label>
+        <input type="number" name="chemistry" required><br><br>
+
+        <label >Physics:</label>
+        <input type="number" name="physics" required><br><br>
+
+        <label >Geography:</label>
+        <input type="number" name="geography" required><br><br>
+
+        <label >Business:</label>
+        <input type="number" name="business" required><br><br>
+
+        <label >English:</label>
+        <input type="number" name="english" required><br><br>
+
+        <label >Kiswahili:</label>
+        <input type="number" name="kiswahili" required><br><br>
+
+        <label >CRE:</label>
+        <input type="number" name="cre" required><br><br>
+
+        <label >French:</label>
+        <input type="number" name="french" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

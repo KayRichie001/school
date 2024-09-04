@@ -1,0 +1,52 @@
+{% extends "admin_dashboard.html" %}
+
+{% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Students</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function redirectToMarkEntry(admission_no) {
+            // Debugging: Log the admission number to confirm it's being passed
+            console.log("Redirecting to:", admission_no);
+            window.location.href = `/${admission_no}`;
+        }
+    </script>
+
+    <h1>Student List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Admission Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for student in students %}
+            <tr onclick="redirectToMarkEntry('{{ student[0] }}')">
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

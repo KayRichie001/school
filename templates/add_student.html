@@ -1,0 +1,107 @@
+{% extends "manager.html" %}
+{% block content %}
+
+    <style>
+
+        .signup-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 700px;
+            max-height: 90vh; /* Prevents the form from being too tall */
+            overflow-y: auto; /* Adds scroll if content overflows */
+            box-sizing: border-box;
+        }
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .signup-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .signup-container input[type="text"],
+        .signup-container input[type="number"],
+        .signup-container select,
+        .signup-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .signup-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .signup-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+
+
+    <div class="signup-container">
+        <h2>Student Signup</h2>
+        <form action="/submit_signup" method="post">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="first_name" placeholder="Enter your first name" required>
+
+            <label for="mname">Middle Name</label>
+            <input type="text" id="mname" name="middle_name" placeholder="Enter your middle name" required>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Enter your last name" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="1" placeholder="Enter your age" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="grade">Select Your Grade</label>
+            <select id="grade" name="grade" required>
+                <option value="">Select your grade</option>
+                <option value="play_group1">pp1</option>
+                <option value="play_group2">pp2</option>
+                <option value="grade1">Grade 1</option>
+                <option value="grade2">Grade 2</option>
+                <option value="grade3">Grade 3</option>
+                <option value="grade4">Grade 4</option>
+                <option value="grade5">Grade 5</option>
+                <option value="grade6">Grade 6</option>
+                <option value="form1">Form 1</option>
+                <option value="form2">Form 2</option>
+                <option value="form3">Form 3</option>
+                <option value="Form4">Form 4</option>
+                <option value="Form5">Form 5</option>
+                <option value="Form6">Form 6</option>
+            </select>
+
+            <label for="sickness">Sickness (if any)</label>
+            <textarea id="sickness" name="sickness" placeholder="Describe any sickness or leave blank if none"></textarea>
+
+            <label for="treatment">Treatment (if applicable)</label>
+            <textarea id="treatment" name="treatment" placeholder="Describe the treatment or leave blank if not applicable"></textarea>
+
+            <label for="admission_no">Admission Number</label>
+            <input type="text" id="admission_no" name="admission_no" placeholder="Enter your admission number" required>
+
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+{% endblock %}

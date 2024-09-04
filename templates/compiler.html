@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <!-- -------Styles------- -->
+     <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+     <!-- ---------------Navigation Bar----------------- -->
+    <div class="container">
+        <div class="navigation " >
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+                        <span class="title">Brand Name</span>
+                    </a>
+                </li>
+
+                <li>
+                   <a href="{{ url_for('view_students_marks') }}">
+                        <span class="icon"><ion-icon name="clipboard"></ion-icon></span>
+                        <span class="title">Exam scores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('')}}">
+                        <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
+                        <span class="title">Results</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+                        <span class="title">Most Improved</span>
+                    </a>
+                </li>
+               <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="title">Failed & Passed Units</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <span class="title">Password</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Log Out</span>
+                    </a>
+
+                </li>
+
+            </ul>
+        </div>
+        <!-- -------- Main ------------- -->
+    </div>
+    <!-- -------Scripts------- -->
+<!--     <script src="assets/js/main.js"></script>-->
+     <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon class="Menu" name="menu"></ion-icon>
+            </div>
+            <div class="search">
+                <label>
+
+                </label>
+            </div>
+            <div class="user">
+<!--           -->
+<!--              -->
+ {% if profile_picture %}
+        <h2>Current Profile Picture:</h2>
+        <img src="{{ url_for('static', filename='uploads/' + username + '_profile_picture.jpg') }}" alt="Profile Picture">
+    {% else %}
+        opps
+    {% endif %}        </div>
+
+        </div>
+
+{% block content %}{% endblock %}
+
+     </div>
+<script src="static/js/main.js"></script>
+
+    <!---------------Ionicons------------------------>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

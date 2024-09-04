@@ -1,0 +1,45 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="static/css/settings_styles.css">
+    <h2>Settings</h2>
+    <p>Change your background color, fonts, and profile picture.</p>
+    <!-- Include form elements for changing settings -->
+
+<div class="dashboard">
+    <h1>My Dashboard</h1>
+<!--    <img src="default-profile.png" alt="Profile Picture" class="profile-pic" id="profile-pic">-->
+<!--    <input type="file" id="file-input" accept="image/*">-->
+
+<form action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="profile_pic" accept="image/*">
+    <button class="upload-btn" >Change Profile Picture</button>
+    <button type="submit">Save</button>
+</form>
+    <div class="controls">
+        <div class="color-picker">
+            <label for="bg-color">Choose Background Color:</label>
+            <input type="color" id="bg-color" name="bg-color">
+        </div>
+
+        <div class="bg-image-picker">
+            <button class="upload-btn" onclick="document.getElementById('bg-image-input').click();">Upload Background Image</button>
+            <input type="file" id="bg-image-input" accept="image/*">
+        </div>
+
+        <div class="font-selector">
+            <label for="font-family">Choose Font:</label>
+            <select id="font-family">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<script src="static/js/settings_js.js"></script>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "admin_dashboard.html" %}
+{% block content %}
+    <style>
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1200px; /* Adjust this based on the number of columns */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* Optional: Add a progress bar for each student's average score */
+        .progress-bar {
+            height: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar div {
+            height: 100%;
+            text-align: center;
+            color: white;
+            background-color: #4CAF50;
+            width: 0;
+        }
+    </style>
+
+    <h2>Exam Results</h2>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Admission Number</th>
+                <th>First Name</th>
+                <th>Mathematics</th>
+                <th>Biology</th>
+                <th>Chemistry</th>
+                <th>Physics</th>
+                <th>Geography</th>
+                <th>Business</th>
+                <th>English</th>
+                <th>Kiswahili</th>
+                <th>C.R.E</th>
+                <th>French</th>
+                <th>Average</th>
+                <th>Average Progress</th> <!-- Optional: Progress Bar Column -->
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+                <td>{{ student[5] }}</td>
+                <td>{{ student[6] }}</td>
+                <td>{{ student[7] }}</td>
+                <td>{{ student[8] }}</td>
+                <td>{{ student[9] }}</td>
+                <td>{{ student[10] }}</td>
+                <td>{{ student[11] }}</td>
+                <td>{{ student[12] }}</td>
+                <td>
+                    <div class="progress-bar">
+                        <div style="width: {{ student[12] }}%;">{{ student[12] }}%</div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+
+        .dashboard {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ddd;
+        }
+        #file-input, #bg-image-input {
+            display: none;
+        }
+        .upload-btn, .color-btn, .font-btn {
+            margin-top: 15px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .upload-btn:hover, .color-btn:hover, .font-btn:hover {
+            background-color: #2980b9;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .color-picker, .font-selector {
+            margin-top: 15px;
+        }
+        .font-selector select {
+            padding: 5px;
+            border-radius: 5px;
+        }
